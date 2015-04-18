@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="Events">
+<head>
+	<title>Lab17</title>
+	<meta charset="utf-8" />
+	<script type="text/javascript" src="../assets/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="controller_one">
+        <button ng-click="simple_click()">Clic</button> <!--directiva para clic sencillo-->
+
+        <button ng-dblclick="doubleClick()">Doble Clic</button> <!--directiva para clic doble-->
+
+        <img src="http://dummyimage.com/600x400/000/fff" alt="img" ng-mouseleave="outMouseImg()" ng-mouseenter="onMouseImg()" /> <!--directivas para poner el cursor dentro y fuera de la imagen-->
+
+        {{ event_click }}<!--expresión que llama la variable y la imprime-->
+    </div>
+	
+	
+	<script type="text/javascript">
+
+        angular.module('Events', [])
+               .controller('controller_one', ['$scope', function($scope){ /*scope tiene las caracteristicas de los modelos, es definido por angular*/
+
+                     $scope.simple_click = function(){
+                        $scope.event_click = "Clic Sencillo"; /*da valor a la variable desde el evento*/
+                    };
+                    $scope.doubleClick = function(){
+                        $scope.event_click = "Clic Doble"; /*da valor a la variable desde el evento*/
+                    };
+                    $scope.outMouseImg = function(){
+                        $scope.event_click = "Cursor Fuera de la Imagen"; /*da valor a la variable desde el evento*/
+                    };
+                    $scope.onMouseImg = function(){
+                        $scope.event_click = "Cursor Dentro de la Imagen"; /*da valor a la variable desde el evento*/
+                    };
+               }]);
+
+	
+	</script>
+</body>
+</html>

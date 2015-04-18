@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="changeImage">
+<head>
+    <title>Lab18</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="../assets/angular.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div ng-controller="controller_one">
+
+            <img alt="" ng-src="{{ actual_image }}"> <!--directiva para indicar la ruta a travez de una expresión q llama a la variable actual_image-->
+
+
+            <button ng-click="revealImage('http://dummyimage.com/200x200/ff3300/333')">Imagen 1</button><!--directiva para evento clic-->
+
+            <button ng-click="revealImage('http://dummyimage.com/200x200/000/ffea00')">Imagen 2</button><!--directiva para evento clic-->
+
+        </div>
+    </div>
+    
+    
+    <script type="text/javascript">
+
+        angular.module('changeImage', [])
+               .controller('controller_one', ['$scope', function($scope){
+                    $scope.actual_image = 'http://dummyimage.com/200x200/000/fff'; //define variable y le da valor inicial alcance a todo el controlador
+
+                    $scope.revealImage = function(_images){ //funcion que recibe la ruta _notacionPrivada alcance local de _images
+                        $scope.actual_image = _images; //setea la ruta que llega a la variable declarada
+                    };
+               }]);
+    
+    </script>
+</body>
+</html>

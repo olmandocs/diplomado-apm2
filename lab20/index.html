@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab17</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="../assets/angular.min.js"></script>
+</head>
+<body>
+    <h2>AngularJS Sample Application</h2>
+<div ng-app="mainApp" ng-controller="studentController"> <!--instancia del app y controlador-->
+<form name="studentForm" novalidate> <!--novalidate-->
+<table border="0">
+<tr><td>Enter first name:</td><td><input name="firstname" type="text" ng-model="firstName" required>
+   <span style="color:#ff2a25" ng-show="studentForm.firstname.$dirty && studentForm.firstname.$invalid"> <!--dirty=estado del elemento lleno + validacion =true o false-->
+      <span ng-show="studentForm.firstname.$error.required">First Name is required.</span> <!--error requerido, formato del mensaje-->
+   </span>
+</td></tr>
+<tr><td>Enter last name: </td><td><input name="lastname"  type="text" ng-model="lastName" required>
+   <span style="color:#ff2a25" ng-show="studentForm.lastname.$dirty && studentForm.lastname.$invalid">
+      <span ng-show="studentForm.lastname.$error.required">Last Name is required.</span><!--error requerido, formato del mensaje-->
+   </span>
+</td></tr>
+<tr><td>Email: </td><td><input name="email" type="email" ng-model="email" length="100" required>
+<span style="color:#ff2a25" ng-show="studentForm.email.$dirty && studentForm.email.$invalid">
+      <span ng-show="studentForm.email.$error.required">Email is required.</span><!--error requerido, formato del mensaje-->
+      <span ng-show="studentForm.email.$error.email">Invalid email address.</span><!--erro r de formato de mail, formato del mensaje-->
+   </span>
+</td></tr>
+<tr><td>Age: </td><td><input name="age" type="number" ng-model="age" length="2" required>
+<span style="color:#ff2a25" ng-show="studentForm.age.$dirty && studentForm.age.$invalid">
+      <span ng-show="studentForm.age.$error.required">Age is required.</span><!--error requerido, formato del mensaje-->
+      <span ng-show="studentForm.age.$error.number">Invalid number.</span><!--error de formato numero, formato del mensaje-->
+   </span>
+</td></tr>
+<tr><td><button ng-click="reset()">Reset</button><!--reinicia la data con la funcióm-->
+  </td><td>
+  <button
+    ng-disabled="studentForm.firstname.$dirty && studentForm.firstname.$invalid ||
+              studentForm.lastname.$dirty && studentForm.lastname.$invalid ||
+              studentForm.email.$dirty && studentForm.email.$invalid"
+    ng-click="submit()">Submit
+  </button><!--valida que los campos esten correctos para desbloquear el botón-->
+</td></tr>
+</table>
+</form>
+</div>
+
+
+<script type="text/javascript">
+angular.module('mainApp',  [])
+.controller('studentController', function($scope){
+
+    $scope.reset = function(){
+        $scope.firstName = 'Alejandro';
+        $scope.lastName = 'Romero',
+        $scope.email = "alejo8591@gmail.com";
+        $scope.age = 18;
+    }
+
+    $scope.reset(); //llamado inicial para darle la data por defecto al form
+});
+</script>
+</body>
+</html>

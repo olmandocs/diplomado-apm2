@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="changeClass">
+<head>
+    <title>Lab17</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="../assets/angular.min.js"></script>
+</head>
+<body>
+
+    <div ng-controller="controller-one">
+
+        <div class="container">
+            <p ng-style="stypes"> <!--directiva para setear estilos-->
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nostrum, dolores dolore fugiat adipisci iste amet atque quod quibusdam eaque, soluta? Quia ratione illo, et blanditiis quaerat id magni ad!
+            </p>
+            <h2 ng-class="special_class">Cambiar Clase</h2> <!--directiva para setear clase-->
+        
+        </div>
+        
+        <button ng-click="changeProperties()">Cambiar Propiedades</button> <!--directiva para click-->
+
+        <button ng-click="changeClassProperties()">Cambiar Clases</button> <!--directiva para click-->
+ 
+        <button ng-click="resetClassProperties()">Eliminar Estilos</button> <!--directiva para click-->
+    </div>
+    
+    <script type="text/javascript">
+
+        angular.module('changeClass', [])
+               .controller('controller-one', ['$scope', function($scope){
+
+
+                $scope.changeProperties = function(){ /*define los estilos en una variable js*/
+                    $scope.stypes = {
+                        "background": "blue",
+                        "color": "yellow"
+                    };
+                };
+            
+                $scope.changeClassProperties = function(){
+                    $scope.special_class = "angularjs"; /*define la clase en una variable js*/
+                 };
+
+
+                $scope.resetClassProperties = function(){ /*limpiar cambios*/
+                    $scope.special_class = ""; /*equivalente a remove class js*/
+                    $scope.stypes ="";
+                };
+
+               }]);
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Lab17</title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript" src="../assets/angular.min.js"></script>
+</head>
+<body>
+    <table border="0">
+        <tr>
+            <td><input type="checkbox" ng-model="enableDisableButton">Disable Button</td> <!--manda el valor del chek a la variable-->
+            <td><button ng-disabled="enableDisableButton">Click Me</button></td> <!--habilita o inhabilita el botón dependiendo del valor de la variable-->
+        </tr>
+        <tr>
+            <td><input type="checkbox" ng-model="showHide">Show Button</td> <!--manda el valor del chek a la variable-->
+            <td><button ng-show="showHide">Click Me</button></td> <!--muestra o esconde el botón dependiendo del valor de la variable-->
+        </tr>
+
+        <tr>
+            <td><input type="checkbox" ng-model="showHide1">Hide Button</td> <!--manda el valor del chek a la variable-->
+            <td><button ng-hide="showHide1">Click Me</button></td> <!--muestra o esconde el botón dependiendo del valor de la variable-->
+        </tr>
+
+        <tr>
+            <td><p>Total click: {{ click_counter }}</p></td> <!--muestra la variable-->
+            <td><button ng-click="click_counter = click_counter + 1">Click Me!</button></td> <!--en el evento clic realiza la suma de los clics y ña asigna a la variable-->
+        </tr>
+
+    </table>
+</body>
+</html>
