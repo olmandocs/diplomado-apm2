@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS First Application</title>
+</head>
+<body>
+	<div ng-app>
+		<p>Enter your Name: <input  type="text" ng-model="my_name" /></p>
+		<p> Hello <span ng-bind="my_name"></span> !</p>
+		<br>
+		<p>Phone Number: <input type="number" ng-model="phone" /></p>
+		<p> Number: <span ng-bind="phone"></span></p>
+	</div>
+	<script type="text/javascript"src="../assets/angular.min.js"></script>
+</body>
+</html>
