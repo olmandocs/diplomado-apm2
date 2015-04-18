@@ -6,10 +6,10 @@
 </head>
 <body>
 	<div ng-controller="controllerOne"><!-- controlador -->
-		<div ng-show="revealDiv">
+		<div ng-show="revealDiv"><!-- sirve para mostrar o ocultar -->
 			<h1>Hola mundo</h1>	
 		</div>
-		<button ng-click="controlButton()" ng-show="revealButton">Ocultar button</button>
+		<button ng-click="controlButton()" ng-show="revealButton">Ocultar button</button><!-- sirve para mostrar o ocultar envia el evento click a la clase-->
 	</div>
 
 	<script type="text/javascript" src="../assets/angular.min.js"></script>
@@ -17,11 +17,11 @@
 	<script type="text/javascript">
 
 	angular.module('reveal-app', [])/*crea modulo y si se quiere en el corchete se llaman otros*/
-		   .controller('controllerOne', ['$scope', function($scope){
-		   		$scope.revealDiv = false;
-		   		$scope.revealButton = true;
+		   .controller('controllerOne', ['$scope', function($scope){/*?*/
+		   		$scope.revealDiv = false;/*seteo inicial*/
+		   		$scope.revealButton = true;/*seteo inicial*/
 
-		   		$scope.controlButton = function(){
+		   		$scope.controlButton = function(){ /*espera el evento click y cambia los valores*/
 		   			$scope.revealDiv = true;
 		   			$scope.revealButton = false;
 		   		};
