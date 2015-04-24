@@ -24,6 +24,8 @@
             */
             $routeProvider.when('/hello', { //para #/hello
                 templateUrl : "hello.html"
+            }).when('/mobile', { //para #/mobile
+                templateUrl : "mobile.html"
             }).otherwise({ //para el resto ej 404
                 redirectTo: '/',
                 templateUrl: 'otherwise.html'
