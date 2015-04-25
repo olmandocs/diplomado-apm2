@@ -4,7 +4,7 @@ var router = express.Router(); //enrutamiento para node
 
 
 router.get('/', function(req, res){
-	res.render('index', {'title' : 'Lab4'}); 
+	res.render('index', {'title' : 'Lab4'}); //llama al index, setea a la variable title el valor
 });
 
 /*respuesta al entrar a /message peticion post*/
