@@ -1,0 +1,16 @@
+{
+  "name": "lab31",
+  "version": "1.0.0",
+  "description": "lab31",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "TDD"
+  },
+  "author": "ODIP",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-uglify": "^1.2.0"
+  }
+}

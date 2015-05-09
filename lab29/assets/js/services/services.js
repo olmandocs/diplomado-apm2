@@ -6,5 +6,6 @@ angular.module('lab29.services', ['ngResource']) //llama a angular-resource
 
     'use strict';
 
-    return $resource('http://127.0.0.1:3636/data');//toma los datos y los regresa
+    return $resource('http://localhost:3636/data');//toma los datos y los regresa
+    //return $resource('http://104.236.37.193:8888/login/');
 });
